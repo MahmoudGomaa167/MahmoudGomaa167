@@ -1,0 +1,23 @@
+.userFavourites{
+    min-height: 100vh;
+    background-color: rgba(10, 63, 91, 1);
+    color: #fff;
+}
+
+.spinner{
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    background-image: radial-gradient(
+        closest-corner,
+        rgba(10, 63, 91, 0.2),
+        rgba(10, 63, 91, 0.4),
+        rgba(10, 63, 91, 0.6),
+        rgba(10, 63, 91, 0.8),
+        rgba(10, 63, 91, 1)
+      );
+}

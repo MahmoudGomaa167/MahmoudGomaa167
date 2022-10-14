@@ -1,0 +1,6 @@
+.homePage{
+    min-height: 100vh;
+    background-color: rgba(10, 63, 91, 1);
+    color: #fff;
+    overflow: hidden;
+}

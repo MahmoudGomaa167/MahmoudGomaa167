@@ -1,0 +1,65 @@
+.movieDetails{
+    min-height: 100vh;
+    position: relative;
+    color: #fff;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(
+        closest-corner,
+        rgba(10, 63, 91, 0.2),
+        rgba(10, 63, 91, 0.4),
+        rgba(10, 63, 91, 0.6),
+        rgba(10, 63, 91, 0.8),
+        rgba(10, 63, 91, 1)
+      );
+    z-index: 1;
+}
+
+.movieImage,
+.movieInfo,
+.button{
+    position: relative;
+    z-index: 10;
+}
+
+.movieImage img{
+    width: 100%;
+    height: 500px;
+    object-fit: contain;
+}
+
+.movieInfo p{
+    font-size: 18px;
+}
+
+.genre{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.spinner{
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+    background-image: radial-gradient(
+        closest-corner,
+        rgba(10, 63, 91, 0.2),
+        rgba(10, 63, 91, 0.4),
+        rgba(10, 63, 91, 0.6),
+        rgba(10, 63, 91, 0.8),
+        rgba(10, 63, 91, 1)
+      );
+}

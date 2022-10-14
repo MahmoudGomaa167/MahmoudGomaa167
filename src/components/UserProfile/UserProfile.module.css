@@ -1,0 +1,34 @@
+.userDetails{
+    min-height: 100vh;
+    background-color: rgba(10, 63, 91, 1);
+    color: #fff;
+    overflow: hidden;
+}
+
+
+.userImage,
+.userInfo,
+.button{
+    position: relative;
+    z-index: 10;
+}
+
+.userImage img{
+    width: 100%;
+    height: 100%;
+}
+
+.movieInfo p{
+    font-size: 18px;
+}
+
+.genre{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 425px){
+    .userInfo h5{
+        font-size: 16px;
+    }
+}

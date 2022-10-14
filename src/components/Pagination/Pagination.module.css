@@ -1,0 +1,10 @@
+.pageLink{
+    cursor: pointer;
+    color: rgba(10, 63, 91, 1) !important;
+}
+
+.pageLink.active, 
+.pageLink:hover{
+    color: #fff !important;
+    background-color: rgba(10, 63, 91, 0.5)!important;
+}

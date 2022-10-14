@@ -1,0 +1,19 @@
+.movieCard{
+    position: relative;
+}
+
+.movieImage{
+    width: 100%;
+   height: 400px;
+   object-fit: cover;
+}
+
+
+.movieCard svg{
+    color: orange;
+    position: absolute;
+    z-index: 3;
+    top: 15px;
+    left: 15px;
+    font-size: 25px;
+}
