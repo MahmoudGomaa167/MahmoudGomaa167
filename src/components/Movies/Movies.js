@@ -12,8 +12,8 @@ import { ClockLoader } from 'react-spinners';
 
 
 const schema = yup.object({
-  searchKey: yup.string(),
-  genre: yup.string()
+  searchKey: yup.string().notRequired(),
+  genre: yup.lazy(value => !value ? yup.string() : yup.string().matches(/^(Action|Adventure|Animation|Biography|Comedy|Crime|Drama|Documentary|Fantasy|Family|Historical|Horror|Musical|Mystrey|Romance|Sci-Fi|Thriller|War|Western){1}$/))
 })
 
 const Movies = () => {
@@ -22,6 +22,8 @@ const Movies = () => {
   const [pageNumber, setPageNumber] = useState(1)
   const [pages, setPages] = useState([])
   const [categories, setCategories] = useState([])
+  const [searchKey, setSearchKey] = useState('')
+  const [genre, setGenre] = useState('')
   const token = localStorage.getItem('userToken')
 
   const { register, handleSubmit } = useForm({
@@ -31,7 +33,7 @@ const Movies = () => {
 
 
   useEffect(() => {
-    fetchMovies({ searchKey: '', genre: '' })
+    fetchMovies({ searchKey, genre })
     fetchCategories()
   }, [pageNumber])
 
@@ -46,6 +48,8 @@ const Movies = () => {
 
   async function fetchMovies(data = {}) {
     try {
+      setSearchKey(data?.searchKey)
+      setGenre(data?.genre)
       const request = await axios.get(`https://mahmoud-my-movies-app.herokuapp.com/movies/movie?pageNumber=${pageNumber}&searchKey=${data?.searchKey}&genre=${data?.genre}`, { headers: { 'Authorization': `Bearer ${token}` } })
       const { message } = request.data
       if (message === 'Done') {
@@ -54,7 +58,6 @@ const Movies = () => {
         setLoading(false)
       }
     } catch (error) {
-      console.log(error)
       setLoading(false)
     }
 
@@ -63,6 +66,7 @@ const Movies = () => {
   const handleSearch = (data) => {
     if (!data.searchKey && !data.genre) {
       fetchMovies(data)
+      setPageNumber(1)
       setLoading(true)
     } else {
       setLoading(true)

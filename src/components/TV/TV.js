@@ -11,8 +11,8 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { ClockLoader } from 'react-spinners';
 
 const schema = yup.object({
-    searchKey: yup.string(),
-    genre: yup.string()
+    searchKey: yup.string().notRequired(),
+    genre: yup.lazy(value => !value ? yup.string() : yup.string().matches(/^(Action|Adventure|Animation|Biography|Comedy|Crime|Drama|Documentary|Fantasy|Family|Historical|Horror|Musical|Mystrey|Romance|Sci-Fi|Thriller|War|Western){1}$/))
 })
 
 const TV = () => {
@@ -21,6 +21,8 @@ const TV = () => {
     const [pageNumber, setPageNumber] = useState(1)
     const [pages, setPages] = useState([])
     const [categories, setCategories] = useState([])
+    const [searchKey, setSearchKey] = useState('')
+  const [genre, setGenre] = useState('')
     const token = localStorage.getItem('userToken')
 
     const { register, handleSubmit } = useForm({
@@ -30,6 +32,7 @@ const TV = () => {
     const handleSearch = (data) => {
         if (!data.searchKey && !data.genre) {
             fetchTvShows(data)
+            setPageNumber(1)
             setLoading(true)
         } else {
             setLoading(true)
@@ -39,7 +42,7 @@ const TV = () => {
     }
 
     useEffect(() => {
-        fetchTvShows({ searchKey: '', genre: '' })
+        fetchTvShows({ searchKey, genre})
         fetchCategories()
     }, [pageNumber])
 
@@ -54,6 +57,8 @@ const TV = () => {
 
     async function fetchTvShows(data = {}) {
         try {
+            setSearchKey(data?.searchKey)
+            setGenre(data?.genre)
             const token = localStorage.getItem('userToken')
             const request = await axios.get(`https://mahmoud-my-movies-app.herokuapp.com/movies/tv?pageNumber=${pageNumber}&searchKey=${data?.searchKey}&genre=${data?.genre}`, { headers: { 'Authorization': `Bearer ${token}` } })
             const { message } = request.data
