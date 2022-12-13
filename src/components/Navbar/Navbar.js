@@ -40,7 +40,7 @@ const NavbarComponent = () => {
         try {
             const token = localStorage.getItem('userToken')
             const { _id } = jwtDecode(token)
-            const request = await axios.patch(`https://mahmoud-my-movies-app.herokuapp.com/logout/${_id}`, '', { headers: { 'Authorization': `Bearer ${token}` } })
+            const request = await axios.patch(`https://breakable-tan-button.cyclic.app/logout/${_id}`, '', { headers: { 'Authorization': `Bearer ${token}` } })
             const { message } = request.data
             if (message === 'Logout successfully') {
                 toast.success('Logout Successfully', {

@@ -28,7 +28,7 @@ const Register = () => {
     const onSubmit = async (data) => {
         setLoading(true)
         try {
-            const request = await axios.post('https://mahmoud-my-movies-app.herokuapp.com/register', data)
+            const request = await axios.post('https://breakable-tan-button.cyclic.app/register', data)
             const { message } = request.data
             if (message === 'Registered successfully') {
                 toast.success('Registered Successfully, Please check your email', {
@@ -58,7 +58,6 @@ const Register = () => {
                 });
                 setLoading(false)
             } else {
-                console.log(message)
                 toast.error('Failed to register', {
                     position: "top-right",
                     autoClose: 5000,

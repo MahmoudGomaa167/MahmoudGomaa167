@@ -25,7 +25,7 @@ const ResetPassword = () => {
         setLoading(true)
         try {
             const token = localStorage.getItem('userResetToken')
-            const request = await axios.patch('https://mahmoud-my-movies-app.herokuapp.com/resetPassword', data, { headers: { 'Authorization': `Bearer ${token}` } })
+            const request = await axios.patch('https://breakable-tan-button.cyclic.app/resetPassword', data, { headers: { 'Authorization': `Bearer ${token}` } })
             const { message } = request.data
             if (message === 'Done') {
                 toast.success('Done, Please Reset your password', {
@@ -88,7 +88,7 @@ const ResetPassword = () => {
             const token = localStorage.getItem('userResetToken')
             const decoded = jwtDecode(token)
             const id = decoded._id
-            const request = await axios.patch(`https://mahmoud-my-movies-app.herokuapp.com/resendKey/${id}`)
+            const request = await axios.patch(`https://breakable-tan-button.cyclic.app/resendKey/${id}`)
             const { message } = request.data
             if (message === 'Code sent successfully') {
                 toast.success('Code Sent Successfully', {

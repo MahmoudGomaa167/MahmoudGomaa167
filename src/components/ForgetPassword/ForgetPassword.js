@@ -23,7 +23,7 @@ const ForgetPassword = () => {
     const onSubmit = async (data) => {
         setLoading(true)
         try {
-            const request = await axios.post('https://mahmoud-my-movies-app.herokuapp.com/forgetPassword', data)
+            const request = await axios.post('https://breakable-tan-button.cyclic.app/forgetPassword', data)
             const { message, token } = request.data
             if (message === 'code sent successfully') {
                 toast.success('Code Sent Successfully', {

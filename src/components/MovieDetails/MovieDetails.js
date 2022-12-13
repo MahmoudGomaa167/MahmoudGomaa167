@@ -18,7 +18,7 @@ const MovieDetails = () => {
     const addToFavourites = async () => {
         setLoading(true)
         try {
-            const request = await axios.patch(`https://mahmoud-my-movies-app.herokuapp.com/addToFavourites/${id}`, '', { headers: { 'Authorization': `Bearer ${token}` } })
+            const request = await axios.patch(`https://breakable-tan-button.cyclic.app/addToFavourites/${id}`, '', { headers: { 'Authorization': `Bearer ${token}` } })
             const { message } = request.data
             if (message === 'movie added to favourites successfully') {
                 setUser(request.data.user)
@@ -52,7 +52,7 @@ const MovieDetails = () => {
     const removeFromFavourites = async () => {
         setLoading(true)
         try {
-            const request = await axios.patch(`https://mahmoud-my-movies-app.herokuapp.com/removeFromFavourites/${id}`, '', { headers: { 'Authorization': `Bearer ${token}` } })
+            const request = await axios.patch(`https://breakable-tan-button.cyclic.app/removeFromFavourites/${id}`, '', { headers: { 'Authorization': `Bearer ${token}` } })
             const { message } = request.data
             if (message === 'Movie removed from favourites successfully') {
                 setUser(request.data.user)

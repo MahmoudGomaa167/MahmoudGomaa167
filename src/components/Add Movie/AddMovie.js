@@ -25,7 +25,7 @@ const AddMovie = () => {
 
     async function fetchCategories() {
         try {
-            const request = await axios.get('https://mahmoud-my-movies-app.herokuapp.com/getCategories', { headers: { 'Authorization': `Bearer ${token}` } })
+            const request = await axios.get('https://breakable-tan-button.cyclic.app/getCategories', { headers: { 'Authorization': `Bearer ${token}` } })
             setCategories(request.data.categories)
         } catch (error) {
             console.log(error)
@@ -44,7 +44,7 @@ const AddMovie = () => {
     const onSubmit = async (data) => {
         setLoading(true)
         try {
-            const request = await axios.post('https://mahmoud-my-movies-app.herokuapp.com/addMovie', data, { headers: { 'Authorization': `Bearer ${token}` } })
+            const request = await axios.post('https://breakable-tan-button.cyclic.app/addMovie', data, { headers: { 'Authorization': `Bearer ${token}` } })
             const { message } = request.data
             if (message === 'Movie added successfully') {
                 toast.success('Movie Added Successfully', {

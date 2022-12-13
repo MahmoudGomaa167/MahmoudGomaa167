@@ -48,7 +48,7 @@ const TV = () => {
 
     async function fetchCategories() {
         try {
-            const request = await axios.get('https://mahmoud-my-movies-app.herokuapp.com/getCategories', { headers: { 'Authorization': `Bearer ${token}` } })
+            const request = await axios.get('https://breakable-tan-button.cyclic.app/getCategories', { headers: { 'Authorization': `Bearer ${token}` } })
             setCategories(request.data.categories)
         } catch (error) {
             console.log(error)
@@ -60,7 +60,7 @@ const TV = () => {
             setSearchKey(data?.searchKey)
             setGenre(data?.genre)
             const token = localStorage.getItem('userToken')
-            const request = await axios.get(`https://mahmoud-my-movies-app.herokuapp.com/movies/tv?pageNumber=${pageNumber}&searchKey=${data?.searchKey}&genre=${data?.genre}`, { headers: { 'Authorization': `Bearer ${token}` } })
+            const request = await axios.get(`https://breakable-tan-button.cyclic.app/movies/tv?pageNumber=${pageNumber}&searchKey=${data?.searchKey}&genre=${data?.genre}`, { headers: { 'Authorization': `Bearer ${token}` } })
             const { message } = request.data
             if (message === 'Done') {
                 setTv(request.data.movies)

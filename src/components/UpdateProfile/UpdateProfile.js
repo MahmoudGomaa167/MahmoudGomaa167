@@ -62,7 +62,7 @@ const UpdateProfile = () => {
         formData.append('profile_pic', file)
         setLoading(true)
         try {
-            const request = await axios.put('https://mahmoud-my-movies-app.herokuapp.com/updateUser', formData, { headers: { 'Authorization': `Bearer ${token}` } })
+            const request = await axios.put('https://breakable-tan-button.cyclic.app/updateUser', formData, { headers: { 'Authorization': `Bearer ${token}` } })
             const { message } = request.data
             if (message === 'User updated successfully') {
                 const updatedUser = request.data.user
@@ -93,7 +93,7 @@ const UpdateProfile = () => {
                 setUser(updatedUser)
                 setLoading(false)
                 const { _id } = jwtDecode(token)
-                const logoutRequest = await axios.patch(`https://mahmoud-my-movies-app.herokuapp.com/logout/${_id}`, '', { headers: { 'Authorization': `Bearer ${token}` } })
+                const logoutRequest = await axios.patch(`https://breakable-tan-button.cyclic.app/logout/${_id}`, '', { headers: { 'Authorization': `Bearer ${token}` } })
                 const { message } = logoutRequest.data
                 if (message === 'Logout successfully') {
                     toast.success('Logout Successfully', {

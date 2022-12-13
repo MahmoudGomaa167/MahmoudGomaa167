@@ -27,7 +27,7 @@ const ChangePassword = () => {
         setLoading(true)
         try {
             const token = localStorage.getItem('userResetToken')
-            const request = await axios.patch('https://mahmoud-my-movies-app.herokuapp.com/changePassword', data, { headers: { 'Authorization': `Bearer ${token}` } })
+            const request = await axios.patch('https://breakable-tan-button.cyclic.app/changePassword', data, { headers: { 'Authorization': `Bearer ${token}` } })
             const { message } = request.data
             if (message === 'password changed successfully') {
                 toast.success('password changed successfully', {

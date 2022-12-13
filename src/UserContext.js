@@ -11,7 +11,7 @@ export const UserContextProvider = (props) => {
 
     const fetchUser = async (id, token) => {
         try {
-            const request = await axios.get(`https://mahmoud-my-movies-app.herokuapp.com/getUser/${id}`, {headers: {'Authorization': `Bearer ${token}`}})
+            const request = await axios.get(`https://breakable-tan-button.cyclic.app/getUser/${id}`, {headers: {'Authorization': `Bearer ${token}`}})
             const {message} = request.data
             if(message === 'Done'){
                 setUser(request.data.user)

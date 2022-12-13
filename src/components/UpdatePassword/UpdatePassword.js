@@ -26,7 +26,7 @@ const UpdatePassword = () => {
     const onSubmit = async (data) => {
         setLoading(true)
         try {
-            const request = await axios.patch(`http://localhost:8000/updatePassword`, data, { headers: { 'Authorization': `Bearer ${token}` } })
+            const request = await axios.patch(`https://breakable-tan-button.cyclic.app/updatePassword`, data, { headers: { 'Authorization': `Bearer ${token}` } })
             const { message } = request.data
             if (message === 'Password updated successfully') {
                 toast.success('Password Updated Successfully', {

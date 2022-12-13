@@ -27,7 +27,7 @@ const VerifyEmail = () => {
             const token = localStorage.getItem('userVerifyToken')
             const decoded = jwtDecode(token)
             const id = decoded._id
-            const request = await axios.patch(`https://mahmoud-my-movies-app.herokuapp.com/verifyEmail/${id}`, data)
+            const request = await axios.patch(`https://breakable-tan-button.cyclic.app/verifyEmail/${id}`, data)
             const { message } = request.data
             if (message === 'Email Confirmed Successfully') {
                 toast.success('Email Confirmed Successfully', {
@@ -90,7 +90,7 @@ const VerifyEmail = () => {
             const token = localStorage.getItem('userVerifyToken')
             const decoded = jwtDecode(token)
             const id = decoded._id
-            const request = await axios.patch(`https://mahmoud-my-movies-app.herokuapp.com/resendKey/${id}`)
+            const request = await axios.patch(`https://breakable-tan-button.cyclic.app/resendKey/${id}`)
             const { message } = request.data
             if (message === 'Code sent successfully') {
                 toast.success('Code Sent Successfully', {

@@ -31,7 +31,7 @@ const Login = () => {
     const onSubmit = async (data) => {
         setLoading(true)
         try {
-            const request = await axios.post('https://mahmoud-my-movies-app.herokuapp.com/login', data)
+            const request = await axios.post('https://breakable-tan-button.cyclic.app/login', data)
             const { message, token } = request.data
             if (message === 'login success') {
                 toast.success('Login Successfully', {
@@ -88,6 +88,7 @@ const Login = () => {
                 });
                 setLoading(false)
             } else {
+                console.log(error)
                 toast.error('failed to login', {
                     position: "top-right",
                     autoClose: 5000,

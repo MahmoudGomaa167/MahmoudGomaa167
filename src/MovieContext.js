@@ -17,7 +17,7 @@ export function MovieContextProvider(props) {
         setMovieLoading(true)
         try {
             const token = localStorage.getItem('userToken')
-            const request = await axios.get(`https://mahmoud-my-movies-app.herokuapp.com/movie/${id}`, { headers: { 'Authorization': `Bearer ${token}` } })
+            const request = await axios.get(`https://breakable-tan-button.cyclic.app/movie/${id}`, { headers: { 'Authorization': `Bearer ${token}` } })
             const { message } = request.data
             if (message === 'Done') {
                 setMovie(request.data.movie)

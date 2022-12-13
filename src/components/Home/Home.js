@@ -22,7 +22,7 @@ const Home = () => {
 
   async function fetchMovies() {
     try {
-      const request = await axios.get('https://mahmoud-my-movies-app.herokuapp.com/movies/movie?size=20', { headers: {'Authorization': `Bearer ${token}`}})
+      const request = await axios.get('https://breakable-tan-button.cyclic.app/movies/movie?size=20', { headers: {'Authorization': `Bearer ${token}`}})
       const {message} = request.data
       if(message === 'Done'){
         setMovies(request.data.movies)
@@ -37,7 +37,7 @@ const Home = () => {
 
   async function fetchTvShows() {
     try {
-      const request = await axios.get('https://mahmoud-my-movies-app.herokuapp.com/movies/tv?size=20', { headers: {'Authorization': `Bearer ${token}`}})
+      const request = await axios.get('https://breakable-tan-button.cyclic.app/movies/tv?size=20', { headers: {'Authorization': `Bearer ${token}`}})
       const {message} = request.data
       if(message === 'Done'){
         setTv(request.data.movies)

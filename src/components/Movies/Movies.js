@@ -39,7 +39,7 @@ const Movies = () => {
 
   async function fetchCategories() {
     try {
-      const request = await axios.get('https://mahmoud-my-movies-app.herokuapp.com/getCategories', { headers: { 'Authorization': `Bearer ${token}` } })
+      const request = await axios.get('https://breakable-tan-button.cyclic.app/getCategories', { headers: { 'Authorization': `Bearer ${token}` } })
       setCategories(request.data.categories)
     } catch (error) {
       console.log(error)
@@ -50,7 +50,7 @@ const Movies = () => {
     try {
       setSearchKey(data?.searchKey)
       setGenre(data?.genre)
-      const request = await axios.get(`https://mahmoud-my-movies-app.herokuapp.com/movies/movie?pageNumber=${pageNumber}&searchKey=${data?.searchKey}&genre=${data?.genre}`, { headers: { 'Authorization': `Bearer ${token}` } })
+      const request = await axios.get(`https://breakable-tan-button.cyclic.app/movies/movie?pageNumber=${pageNumber}&searchKey=${data?.searchKey}&genre=${data?.genre}`, { headers: { 'Authorization': `Bearer ${token}` } })
       const { message } = request.data
       if (message === 'Done') {
         setMovies(request.data.movies)
